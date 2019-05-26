@@ -58,6 +58,13 @@ class InteractiveRecord
     value = attribute_hash.values.first
     final_value = value.class == Fixnum ? value : "'#{value}'"
     sql = "SELECT * FROM #{self.table_name} WHERE #{attribute_hash.keys.first} = #{final_value}"
-    DB[:conn].execute(sql)    
+    DB[:conn].execute(sql) 
   end
+  
+
+  # sql = ""
+  #   hash.each do |k,v|
+  # v = "\'#{v}\'" if v.is_a?(String)
+  #     sql =  "SELECT * FROM #{self.table_name} WHERE #{k} = #{v}"
+  # end
 end
